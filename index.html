@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1A1F2C;
+            overflow: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .profile-card {
+            background: rgba(34, 31, 38, 0.85);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            max-width: 24rem;
+            margin: 0 auto;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .avatar {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            border: 2px solid rgba(155, 135, 245, 0.5);
+        }
+
+        .username {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .status {
+            color: #9b87f5;
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+        }
+
+        .views {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+        }
+
+        .discord-button img {
+            width: 2rem;
+            height: 2rem;
+            transition: opacity 0.2s;
+        }
+
+        .discord-button:hover img {
+            opacity: 0.8;
+        }
+
+        .sound-toggle {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            padding: 0.75rem;
+            border-radius: 9999px;
+            background: rgba(0, 0, 0, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .sound-toggle:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .new-button {
+            margin-top: 1rem;
+            padding: 0; /* Remove padding for text link */
+            border: none;
+            border-radius: 0.5rem;
+            background-color: transparent; /* Make background transparent */
+            color: white; /* Text color */
+            cursor: pointer;
+            transition: text-shadow 0.2s; /* Transition for glowing effect */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .new-button:hover {
+            text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px white; /* Glowing effect */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <video id="bgVideo" class="video-background" autoplay loop muted>
+        <source src="https://cdn.discordapp.com/attachments/1259198550445785178/1320076365382287421/MoodWasHere.mp4?ex=6768486b&is=6766f6eb&hm=4017b118ec6d5463453cb622042f2aa8f7d576a4451bb17a12ce69794e3ed07e&" type="video/mp4">
+    </video>
+
+    <div class="profile-card">
+        <img class="avatar" src="https://cdn.discordapp.com/attachments/849716328252440578/1320076774087983235/4dd1b81e-7547-4eb4-a5a6-7facac8d6e71.png?ex=676848cc&is=6766f74c&hm=79cc8f233af73310a6e67428c4f5d76447c1507833fc317e416db5a9a5ee18a3&" alt="Profile Picture">
+        <h1 class="username">m4deinmood</h1>
+        <p class="status">yes my dm's are open</p>
+        
+        <div class="stats">
+            <div class="views">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>103</span>
+            </div>
+            
+            <a href="https://discord.gg/pVg7NJRzu8" target="_blank" rel="noopener noreferrer" class="discord-button">
+                <img src="https://cdn.discordapp.com/attachments/849716328252440578/1320080421760794717/Capture_decran_2024-12-15_172930.png?ex=67684c32&is=6766fab2&hm=ec18463991aeaf7228b1da5a0436352ec3696b8c5ed1464241240012b723abcf&" alt="Discord">
+            </a>
+        </div>
+
+        <!-- New Text Link Added Here -->
+        <a href="https://deepwoken.fandom.com/wiki/Oath:_Blindseer" target="_blank" rel="noopener noreferrer" class="new-button">
+            Learn about Oath: Blindseer
+        </a>
+    </div>
+
+    <button class="sound-toggle" onclick="toggleSound()">
+        <svg id="soundIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5 6 9H2v6h4l5 4V5Z"></path>
+            <path id="soundWaves" d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+        </svg>
+    </button>
+
+    <script>
+        const video = document.getElementById('bgVideo');
+        const soundIcon = document.getElementById('soundIcon');
+        const soundWaves = document.getElementById('soundWaves');
+
+        function toggleSound() {
+            if (video.muted) {
+                video.muted = false;
+                soundWaves.style.display = 'block';
+            } else {
+                video.muted = true;
+                soundWaves.style.display = 'none';
+            }
+        }
+
+        // Initially hide sound waves
+        soundWaves.style.display = 'none';
+    </script>
+</body>
+</html>
